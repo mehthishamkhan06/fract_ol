@@ -27,12 +27,8 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 
 	while (i < fractal->no_of_iterations)
 	{
-		// actual z^2 + c	
-		// z = z^2 + c
 		z = complex_add(complex_square(z), c);
 		
-		// Is the value escaped???
-		// if hypotenuse > 2 i assume the point has escaped
 		// printf("z.re: %f\n", z.re);
 		// printf("z.im: %f\n", z.im);
 		// exit(1);
