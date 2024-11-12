@@ -8,7 +8,8 @@ int main(int argc, char*argv[])
     {
         check_fractol(argc, argv, &fractal);
         initialize_fractal(&fractal);
-        mandelbrot(&fractal);
+        // mandelbrot(&fractal);
+        julia(&fractal);
         // draw_fractal(&fractal);
         mlx_loop(fractal.mlx);
     }

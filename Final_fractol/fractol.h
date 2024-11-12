@@ -49,8 +49,8 @@ typedef struct s_fractal
     char	*addr;
     int     no_of_iterations;
     int     escape_value;
-    // double    x;
-    // double    y;
+    double    x;
+    double    y;
     t_img   img;
 }	t_fractal;
 
@@ -71,11 +71,14 @@ Maths
 t_complex    complex_add(t_complex a, t_complex b);
 t_complex    complex_square(t_complex a);
 // void my_mlx_pixel_put(int x, int y, t_img *img, int color);
+// void	handle_pixel(int x, int y, t_fractal *fractal);
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 
 /*
 mandelbrot
 */
 void    mandelbrot(t_fractal *fractal);
+void    julia(t_fractal *fractal);
+double	atodbl(char *s);
 
 #endif

@@ -7,8 +7,8 @@ void    check_fractol(int ac, char *argv[], t_fractal *fractal)
     else if (ac == 4 && (strcmp(argv[1], "julia") == 0))
     {
         fractal -> fractal_type = 2;
-        // fractal -> x = atof(argv[2]);
-        // fractal -> y = atof(argv[3]);
+        fractal -> x = atof(argv[2]);
+        fractal -> y = atof(argv[3]);
     }
     else if (ac == 2 && (strcmp(argv[1], "burningship") == 0))
         fractal -> fractal_type = 3;

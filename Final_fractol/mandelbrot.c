@@ -1,6 +1,6 @@
 #include "fractol.h"
 
-static void my_mlx_pixel_put(int x, int y, t_img *img, int color)
+static	void my_mlx_pixel_put(int x, int y, t_img *img, int color)
 {
 	int	offset;
 
@@ -8,7 +8,7 @@ static void my_mlx_pixel_put(int x, int y, t_img *img, int color)
 	*(unsigned int *)(img->pixels_ptr + offset) = color;
 }
 
-static void	handle_pixel(int x, int y, t_fractal *fractal)
+static	void	handle_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
 	t_complex	c;
