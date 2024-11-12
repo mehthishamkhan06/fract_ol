@@ -7,7 +7,7 @@ static	void my_mlx_pixel_put(int x, int y, t_img *img, int color)
 	offset = (y * img->line_len) + (x * (img->bpp / 8));
 	*(unsigned int *)(img->pixels_ptr + offset) = color;
 }
-
+printf("hello");
 static  void	handle_pixel_julia(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
