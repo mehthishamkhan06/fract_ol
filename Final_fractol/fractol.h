@@ -32,6 +32,8 @@
 #define ELECTRIC_BLUE   0x0066FF  // A radiant blue
 #define LAVA_RED        0xFF3300  // A bright, molten red
 
+
+
 typedef struct	s_img
 {
 	void	*img_ptr; //pointer to image struct
@@ -51,7 +53,12 @@ typedef struct s_fractal
     int     escape_value;
     double    x;
     double    y;
+    double    shift_x;
+    double    shift_y;
     t_img   img;
+    double     view;
+    double     x_offset;
+    double     y_offset;
 }	t_fractal;
 
 typedef struct s_complex
@@ -80,5 +87,14 @@ mandelbrot
 void    mandelbrot(t_fractal *fractal);
 void    julia(t_fractal *fractal);
 double	atodbl(char *s);
+void	burningship(t_fractal *fractal);
+void my_mlx_pixel_put(int x, int y, t_img *data, int color);
 
+/*
+Events
+*/
+int key_movements(int key_code, t_fractal *fractal);
+int mouse_movements(int mouse_code, int x, int y, t_fractal *fractal);
+int mouse_zoom(int button, int x, int y, t_fractal *fractal);
+int mouse_move(int x, int y, t_fractal *fractal);
 #endif

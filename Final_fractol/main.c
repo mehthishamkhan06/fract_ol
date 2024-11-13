@@ -7,11 +7,24 @@ int main(int argc, char*argv[])
     if (argc > 1 && argc < 5)
     {
         check_fractol(argc, argv, &fractal);
-        initialize_fractal(&fractal);
-        // mandelbrot(&fractal);
-        julia(&fractal);
-        // draw_fractal(&fractal);
+        if (fractal.fractal_type == 1)
+        {
+            initialize_fractal(&fractal);
+            mandelbrot(&fractal);
+        }
+        else if (fractal.fractal_type == 2)
+        {
+            initialize_fractal(&fractal);
+            julia(&fractal);
+        }
+        else if (fractal.fractal_type == 3)
+        {
+            initialize_fractal(&fractal);
+            burningship(&fractal);
+        }
         mlx_loop(fractal.mlx);
+        mlx_hook(fractal.win, 2, 1L<<0, key_movements, &fractal);
+        mlx_hook(fractal.win, 4, 1L<<2, mouse_movements, &fractal);
     }
     else
     {
@@ -19,5 +32,4 @@ int main(int argc, char*argv[])
         return (1);
     }
     return (0);
-
 }
