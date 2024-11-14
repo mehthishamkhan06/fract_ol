@@ -10,16 +10,16 @@ void    bonus_view(t_fractal *fractal, int mouse_x, int mouse_y, int flag)
 	y = 0;
 	screen_x = 0;
 	screen_y = 0;
-	x = (scale(mouse_x, -2, 2) * fractal->view) + fractal->shift_x;
-	y = (scale(mouse_y, 2, -2) * fractal->view) + fractal->shift_y;
+	x = (scale(mouse_x, -2, 2) * fractal->view) + fractal->x_offset;
+	y = (scale(mouse_y, 2, -2) * fractal->view) + fractal->y_offset;
 	if (flag == 1)
 		fractal->view /= 1.25;
 	else if (flag == -1)
 		fractal->view *= 1.25;
-	screen_x = (scale(mouse_x, -2, 2) * fractal->view) + fractal->shift_x;
-	screen_y = (scale(mouse_y, 2, -2) * fractal->view) + fractal->shift_y;
-	fractal->shift_x += (x - screen_x);
-	fractal->shift_y += (y - screen_y);
+	screen_x = (scale(mouse_x, -2, 2) * fractal->view) + fractal->x_offset;
+	screen_y = (scale(mouse_y, 2, -2) * fractal->view) + fractal->y_offset;
+	fractal->x_offset += (x - screen_x);
+	fractal->y_offset += (y - screen_y);
 }
 
 int mouse_movements(int mouse_code, int x, int y, t_fractal *fractal)
@@ -27,6 +27,10 @@ int mouse_movements(int mouse_code, int x, int y, t_fractal *fractal)
     mlx_clear_window(fractal -> mlx, fractal -> win);
     printf("x: %d, y: %d\n", x, y);
     mlx_mouse_get_pos(fractal -> win, &x, &y);
+    if (mouse_code == 1)
+        bonus_view(fractal, x, y, 1);
+    if (mouse_code == 2)
+        bonus_view(fractal, x, y, -1);
     if (mouse_code == 5)
         fractal -> view *= 1.1;
     if (mouse_code == 4)

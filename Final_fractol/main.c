@@ -23,7 +23,7 @@ int main(int argc, char*argv[])
         }
         mlx_key_hook(fractal.win, key_movements, &fractal);
         mlx_mouse_hook(fractal.win, mouse_movements, &fractal);
-        mlx_hook(fractal.win, 17, 0, exit, &fractal);
+        // mlx_hook(fractal.win, 17, 0, exit, &fractal);
         mlx_loop(fractal.mlx);
     }
     else
