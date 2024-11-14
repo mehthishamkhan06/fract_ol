@@ -1,6 +1,5 @@
 #include "fractol.h"
 
-
 int main(int argc, char*argv[])
 {
     t_fractal fractal;
@@ -22,9 +21,10 @@ int main(int argc, char*argv[])
             initialize_fractal(&fractal);
             burningship(&fractal);
         }
+        mlx_key_hook(fractal.win, key_movements, &fractal);
+        mlx_mouse_hook(fractal.win, mouse_movements, &fractal);
+        mlx_hook(fractal.win, 17, 0, exit, &fractal);
         mlx_loop(fractal.mlx);
-        mlx_hook(fractal.win, 2, 1L<<0, key_movements, &fractal);
-        mlx_hook(fractal.win, 4, 1L<<2, mouse_movements, &fractal);
     }
     else
     {
