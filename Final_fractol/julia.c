@@ -1,7 +1,6 @@
 #include "fractol.h"
 
-
-static  void	handle_pixel_julia(int x, int y, t_fractal *fractal)
+static	void	handle_pixel_julia(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
 	t_complex	c;
@@ -9,11 +8,10 @@ static  void	handle_pixel_julia(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-    // z.re = 0.0;
-    // z.im = 0.0;
-	
-	z.re = (map(x, -2, +2, 0, WIDTH));
-	z.im = (map(y, +2, -2, 0, HEIGHT));
+	// z.re = 0.0;
+	// z.im = 0.0;
+	z.re = (map(x, -2, +2, WIDTH));
+	z.im = (map(y, +2, -2, HEIGHT));
 	c.re = fractal->x;
 	c.im = fractal->y;
 	while (i < fractal->no_of_iterations)
@@ -21,26 +19,27 @@ static  void	handle_pixel_julia(int x, int y, t_fractal *fractal)
 		z = complex_add(complex_square(z), c);
 		if ((z.re * z.re) + (z.im * z.im) > fractal->escape_value)
 		{
-			color = map(i, BLACK, WHITE, 0, fractal->no_of_iterations);
+			color = map(i, BLACK, WHITE, fractal->no_of_iterations);
 			my_mlx_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
-		++i;	
+		++i;
 	}
 	my_mlx_pixel_put(x, y, &fractal->img, WHITE);
 }
 
-void    julia(t_fractal *fractal)
+void	julia(t_fractal *fractal)
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 
-    y = -1;
-    while (++y < HEIGHT)
-    {
-        x = -1;
-        while (++x < WIDTH)
-            handle_pixel_julia(x, y, fractal);
-    }
-    mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img.img_ptr, 0, 0);
+	y = -1;
+	while (++y < HEIGHT)
+	{
+		x = -1;
+		while (++x < WIDTH)
+			handle_pixel_julia(x, y, fractal);
+	}
+	mlx_put_image_to_window(fractal->mlx, fractal->win,
+		fractal->img.img_ptr, 0, 0);
 }
