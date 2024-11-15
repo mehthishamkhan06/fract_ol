@@ -1,7 +1,7 @@
 #include "fractol.h"
 
 
-static	void	ft_atoi_overflow(size_t answer, int sign, char *str)
+static	void	ft_atoi_overflow(size_t answer, int sign)
 {
 	if (answer > 2147483648 && sign == -1)
 		over_flow_error();
@@ -51,7 +51,7 @@ double	ft_atodbl(char *str)
 			over_flow_error();
 		}
 	}
-	ft_atoi_overflow(answer, sign, str);
+	ft_atoi_overflow(answer, sign);
 	if (str[i] == '.')
 		return (atodbl_continution(&str[i], answer, sign));
 	return (answer * sign);
