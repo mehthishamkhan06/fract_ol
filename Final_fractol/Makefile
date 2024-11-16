@@ -1,11 +1,11 @@
 NAME	= fractol
 SRCS	=	main.c	atof.c burning_ship.c errors.c events.c fractol.c julia.c mandelbrot.c maths.c\
-			libft/ft_isdigit.c libft/ft_putstr_fd.c
+			libft_utils.c
 
 OBJS            = $(SRCS:.c=.o)
 CC				= cc
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -g3
+CFLAGS			= -Wall -Wextra -Werror -g3 -fsanitize=address,undefined -O3
 MLX_DIR         = mlx
 MLX_LIB         = $(MLX_DIR)/libmlx.a
 MLX_FLAGS       = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit

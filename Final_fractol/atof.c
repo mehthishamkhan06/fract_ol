@@ -1,6 +1,5 @@
 #include "fractol.h"
 
-
 static	void	ft_atoi_overflow(size_t answer, int sign)
 {
 	if (answer > 2147483648 && sign == -1)
@@ -8,6 +7,7 @@ static	void	ft_atoi_overflow(size_t answer, int sign)
 	if (answer > INT_MAX && sign == 1)
 		over_flow_error();
 }
+
 static	double	atodbl_continution(char *s, size_t integer_part, int sign)
 {
 	double	decimal_part;
@@ -22,8 +22,13 @@ static	double	atodbl_continution(char *s, size_t integer_part, int sign)
 		pow /= 10;
 		decimal_part = decimal_part + (*s++ - 48) * pow;
 	}
+	// double m = (integer_part + decimal_part) * sign;
+	// printf("%zu\n", integer_part);
+	// printf("%f\n", m);
+	// exit(0);
 	return ((integer_part + decimal_part) * sign);
 }
+
 double	ft_atodbl(char *str)
 {
 	size_t	answer;
@@ -39,17 +44,12 @@ double	ft_atodbl(char *str)
 	if (str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')
 			sign = -1;
-	while (str[i] != '.' )
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (!ft_isdigit(str[i]))
-			digit_error();
-		while (str[i] >= '0' && str[i] <= '9')
-		{
-			temp_answer = answer;
-			answer = answer * 10 + str[i++] - '0';
-			if (temp_answer > answer)
+		temp_answer = answer;
+		answer = answer * 10 + str[i++] - '0';
+		if (temp_answer > answer)
 			over_flow_error();
-		}
 	}
 	ft_atoi_overflow(answer, sign);
 	if (str[i] == '.')

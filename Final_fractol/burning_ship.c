@@ -19,13 +19,13 @@ static	void	handle_pixel_burn(int x, int y, t_fractal *fractal)
 		z = complex_add(complex_square(z), c);
 		if ((z.re * z.re) + (z.im * z.im) > fractal->escape_value)
 		{
-			color = map(i, BLUE, BLACK, fractal->no_of_iterations);
+			color = map(i, BLACK, WHITE, fractal->no_of_iterations);
 			my_mlx_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
 		i++;
 	}
-	my_mlx_pixel_put(x, y, &fractal->img, WHITE);
+	my_mlx_pixel_put(x, y, &fractal->img, PSYCHEDELIC_PURPLE);
 }
 
 void	burningship(t_fractal *fractal)

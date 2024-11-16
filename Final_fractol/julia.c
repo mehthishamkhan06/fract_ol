@@ -8,10 +8,8 @@ static	void	handle_pixel_julia(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	// z.re = 0.0;
-	// z.im = 0.0;
-	z.re = (map(x, -2, +2, WIDTH));
-	z.im = (map(y, +2, -2, HEIGHT));
+	z.re = (map(x, -2, +2, WIDTH) * fractal->view) + fractal->x_offset;
+	z.im = (map(y, -2, +2, HEIGHT) * fractal->view) + fractal->y_offset;
 	c.re = fractal->x;
 	c.im = fractal->y;
 	while (i < fractal->no_of_iterations)
@@ -25,7 +23,7 @@ static	void	handle_pixel_julia(int x, int y, t_fractal *fractal)
 		}
 		++i;
 	}
-	my_mlx_pixel_put(x, y, &fractal->img, WHITE);
+	my_mlx_pixel_put(x, y, &fractal->img, BLUE);
 }
 
 void	julia(t_fractal *fractal)

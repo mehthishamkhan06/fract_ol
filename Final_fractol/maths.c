@@ -4,7 +4,7 @@ void	my_mlx_pixel_put(int x, int y, t_img *data, int color)
 {
 	char	*dst;
 
-	dst = data->pixels_ptr + (y * data->line_len + x * (data->bpp / 8));
+	dst = data->pixels_ptr + (y * data->ln_len + x * (data->bpp / 8));
 	*(unsigned int *)dst = color;
 }
 
