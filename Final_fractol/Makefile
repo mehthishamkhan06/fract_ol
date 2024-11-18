@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/18 16:08:10 by mohkhan           #+#    #+#              #
+#    Updated: 2024/11/18 16:08:12 by mohkhan          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	= fractol
 SRCS	=	main.c	atof.c burning_ship.c errors.c events.c fractol.c julia.c mandelbrot.c maths.c\
 			libft_utils.c

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/18 16:09:33 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/11/18 16:09:35 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static	void	handle_pixel_julia(int x, int y, t_fractal *fractal)
@@ -9,7 +21,7 @@ static	void	handle_pixel_julia(int x, int y, t_fractal *fractal)
 
 	i = 0;
 	z.re = (map(x, -2, +2, WIDTH) * fractal->view) + fractal->x_offset;
-	z.im = (map(y, -2, +2, HEIGHT) * fractal->view) + fractal->y_offset;
+	z.im = (map(y, +2, -2, WIDTH) * fractal->view) + fractal->y_offset;
 	c.re = fractal->x;
 	c.im = fractal->y;
 	while (i < fractal->no_of_iterations)

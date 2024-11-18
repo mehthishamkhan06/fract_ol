@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/18 16:09:24 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/11/18 16:09:25 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -78,6 +90,7 @@ void		malloc_error(void);
 void		digit_error(void);
 void		over_flow_error(void);
 void		ft_error(void);
+int			destroy_fractal(t_fractal *fractal);
 /*
 Fractol
 */

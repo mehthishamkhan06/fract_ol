@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   atof.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/18 16:08:19 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/11/18 16:08:31 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static	void	ft_atoi_overflow(size_t answer, int sign)
@@ -22,10 +34,6 @@ static	double	atodbl_continution(char *s, size_t integer_part, int sign)
 		pow /= 10;
 		decimal_part = decimal_part + (*s++ - 48) * pow;
 	}
-	// double m = (integer_part + decimal_part) * sign;
-	// printf("%zu\n", integer_part);
-	// printf("%f\n", m);
-	// exit(0);
 	return ((integer_part + decimal_part) * sign);
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/18 16:09:41 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/11/18 16:09:42 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	ft_putstr_fd(char *s, int fd)
@@ -10,10 +22,10 @@ void	ft_putstr_fd(char *s, int fd)
 	write(fd, s, i);
 }
 
-static  int	max_onedec(char *str)
+static	int	max_onedec(char *str)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -25,16 +37,17 @@ static  int	max_onedec(char *str)
 	}
 	return (count);
 }
-int ft_isdigit_str(char *str)
+
+int	ft_isdigit_str(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (max_onedec(str) > 1)
-		return(1);
+		return (1);
 	if (str[0] == '+' || str[0] == '-')
-    	i = 1;
-	while(str[i])
+		i = 1;
+	while (str[i])
 	{
 		if ((str[i] < '0' || str[i] > '9') && str[i] != '.')
 			return (1);
